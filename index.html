@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=.box, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        body{
+            margin: 0;
+            padding: 0;
+            text-align: center;
+        }
+        .box{
+            width: 500px;
+            height: 500px;
+            margin: 5px auto;
+            border: 5px dotted pink;
+        }
+    </style>
+</head>
+<body>
+    <div class="box"></div>
+    <div class="box"></div>
+    <div class="box"></div>
+    <div class="box"></div>
+    <div class="box"></div>
+    <div class="box"></div>
+    <video id="video" width="400" src="https://download.blender.org/peach/bigbuckbunny_movies/BigBuckBunny_640x360.m4v" muted>
+    </video>
+    <div class="box"></div>
+    <div class="box"></div>
+    <div class="box"></div>
+    <div class="box"></div>
+    <div class="box"></div>
+    <div class="box"></div>
+    <div class="box"></div>
+    <script>
+        const $video = document.querySelector('#video');
+        const options = {
+            // root: ,
+            // rootMargin: ,
+            threshold: .5,
+
+        }
+
+        function play(entries, onserver){
+            console.log('se llama al callback',entries[0]);
+            if(entries[0].isIntersecting){
+                $video.play();
+            }else{
+                $video.pause();
+            }
+        }
+        const observer =  new IntersectionObserver(play, options);
+
+        observer.observe($video)
+    </script>
+</body>
+</html>
